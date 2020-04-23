@@ -43,12 +43,10 @@ object AdverStat {
 
     // adRealTimeDStream: DStream[RDD RDD RDD ...]  RDD[message]  message: key value
     //val adRealTimeDStream =
-    val value: InputDStream[ConsumerRecord[String, String]] = KafkaUtils.createDirectStream[String, String](streamingContext,
+    val adRealTimeDStream: InputDStream[ConsumerRecord[String, String]] = KafkaUtils.createDirectStream[String, String](streamingContext,
       LocationStrategies.PreferConsistent,
       ConsumerStrategies.Subscribe[String, String](Array(kafka_topics), kafkaParam)
     )
-    value
-    value
 
     // 取出了DSream里面每一条数据的value值
     // adReadTimeValueDStream: Dstram[RDD  RDD  RDD ...]   RDD[String]
